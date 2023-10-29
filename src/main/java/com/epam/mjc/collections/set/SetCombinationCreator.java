@@ -14,7 +14,10 @@ public class SetCombinationCreator {
         resultSet.removeAll(thirdSet);
 
         // Add elements that belong only to thirdSet
-        resultSet.addAll(thirdSet);
+        Set<String> thirdSetCopy = new HashSet<>(thirdSet);
+        thirdSetCopy.removeAll(firstSet);
+        thirdSetCopy.removeAll(secondSet);
+        resultSet.addAll(thirdSetCopy);
 
         return resultSet;
     }
