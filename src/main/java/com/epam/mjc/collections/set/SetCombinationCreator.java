@@ -5,5 +5,18 @@ import java.util.Set;
 
 public class SetCombinationCreator {
     public Set<String> createSetCombination(Set<String> firstSet, Set<String> secondSet, Set<String> thirdSet) {
+        Set<String> resultSet = new HashSet<>(firstSet);
+
+        // Remove elements that belong to both firstSet and secondSet
+        resultSet.retainAll(secondSet);
+
+        // Remove elements that belong to thirdSet
+        resultSet.removeAll(thirdSet);
+
+        // Add elements that belong only to thirdSet
+        resultSet.addAll(thirdSet);
+
+        return resultSet;
     }
 }
+
